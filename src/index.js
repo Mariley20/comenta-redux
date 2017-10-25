@@ -6,10 +6,10 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-const Index = () => {
+const Index = () => (
     <Provider store={store}>
         <App />
     </Provider>
-}
+);
 ReactDOM.render(<Index />, document.getElementById('root'));
 registerServiceWorker();

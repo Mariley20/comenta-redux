@@ -3,27 +3,23 @@ import { connect } from "redux-zero/react";
 import { addComment } from "./actions";
 import './App.css';
 
-class App extends Component {
-  render() {
+const App = ({commentary, selectedComment}) => {
     return (
+      <div className="container">
       <form>
-        <div class="form-group">
-          <label for="email">Email address:</label>
-          <input type="email" class="form-control" id="email">
+        <div className="form-group">
+          <label for="text">Name User: </label>
+          <input type="text" className="form-control" />
         </div>
-        <div class="form-group">
-          <label for="pwd">Password:</label>
-          <input type="password" class="form-control" id="pwd">
+        <div className="form-group">
+          <label for="pwd">Comment:</label>
+          <input type="textarea" className="form-control" />
         </div>
-        <div class="checkbox">
-          <label><input type="checkbox"> Remember me</label>
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" className="btn btn-default">Submit</button>
       </form>
+      </div>
     );
-  }
 }
-
 const mapToProps = ({commentary, selectedComment}) =>({commentary, selectedComment});
 
 export default connect(mapToProps)(App);
