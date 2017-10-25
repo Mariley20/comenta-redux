@@ -8,12 +8,12 @@ const App = ({commentary, selectedComment}) => {
       <div className="container">
       <form>
         <div className="form-group">
-          <label for="text">Name User: </label>
+          <label >Name User: </label>
           <input type="text" className="form-control" />
         </div>
         <div className="form-group">
-          <label for="pwd">Comment:</label>
-          <input type="textarea" className="form-control" />
+          <label>Comment:</label>
+          <textarea className="form-control textarea"> </textarea>
         </div>
         <button type="submit" className="btn btn-default">Submit</button>
       </form>
