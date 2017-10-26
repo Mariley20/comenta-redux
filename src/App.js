@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from "redux-zero/react";
-import { addComment, removeComment } from "./actions";
+import { addComment, removeComment, reportAbusive } from "./actions";
 import './App.css';
 
-const ListComments = ({name, comment, removeComment}) => {
+const ListComments = ({name, comment, abusive, removeComment, reportAbusive}) => {
       return (
         <div>
             <p>{name}</p>
-            <p>{comment}</p>
-            <button onClick={removeComment}>Delete</button> <button>Report abuse</button>
+            {!abusive ?
+                <p>{comment}</p>
+            :
+                <p>Content marked as abusive</p>
+            }
+            <button onClick={removeComment}>Delete</button>
+            <button onClick={reportAbusive} >Report abuse</button>
         </div>
       )
 }
@@ -21,7 +26,9 @@ const App = ({commentary, selectedComment}) => {
             key = {index}
             name={element.name}
             comment={element.comment}
+            abusive={element.abusive}
             removeComment={() => removeComment(index)}
+            reportAbusive = {() => reportAbusive(index)}
             />
           )
         });

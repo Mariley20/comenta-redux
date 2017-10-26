@@ -5,7 +5,8 @@ export const addComment = (name, comment) => {
     const addCommentary = [...store.getState().commentary, {
 		id : store.getState().commentary.length + 1,
 		name: name,
-		comment: comment
+        comment: comment,
+        abusive : false
 	}];
 
 	store.setState({
@@ -19,5 +20,13 @@ export const removeComment = (index) => {
 
 	store.setState({
 		commentary: addCommentary
+	})
+}
+export const reportAbusive = (index) => {
+    const cloneList = [...store.getState().commentary];
+	cloneList[index].abusive = (cloneList[index].abusive)? false : true;
+
+	store.setState({
+		commentary: cloneList
 	})
 }
