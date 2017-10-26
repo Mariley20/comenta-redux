@@ -1,28 +1,32 @@
-.App {
-  text-align: center;
+/*#f7e4c6  ->rosado
+#98d9b6  -> verde
+#77778c -> purpura*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.container-box {
+    box-shadow: 4px 6px 38px #0faf54c4;
+    width: 50%;
+    background: #f7e4c6;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.inputComment {
+    height: 10vh;
 }
 
-.App-title {
-  font-size: 1.5em;
+.box-comment {
+    border: 3px solid #77778c;
+    border-radius: 10px;
+    margin-bottom: 12px;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.box-comment .h3-user,
+.box-comment .label-comment,
+.box-comment .btn-remove,
+.box-comment .btn-abusive {
+    padding: 0 5px 0 5px;
 }
