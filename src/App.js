@@ -19,7 +19,9 @@ const App = ({commentary, selectedComment}) => {
   const onSubmit = (e) => {
 		e.preventDefault();
 		console.log ( 'this..', this);//con truco, es el connect el this.
-		addComment(this.userName.value, this.comment.value )
+    addComment(this.userName.value, this.comment.value );
+    this.userName.value = "";
+     this.comment.value = "";
   }
   console.log(commentary)
     return (
@@ -31,7 +33,7 @@ const App = ({commentary, selectedComment}) => {
         </div>
         <div className="form-group">
           <label>Comment:</label>
-          <textarea className="form-control textarea" ref={(e) => this.comment = e} > </textarea>
+          <textarea className="form-control textarea" ref={(e) => this.comment = e} /> 
         </div>
         <button type="submit" className="btn btn-default">Submit</button>
       </form>
