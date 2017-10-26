@@ -1,26 +1,37 @@
 import React, { Component } from 'react';
 import { connect } from "redux-zero/react";
-import { addComment } from "./actions";
+import { addComment, removeComment } from "./actions";
 import './App.css';
 
-const ListComments = ({commentary}) => {
-    let list = commentary.map((element, index) => {
+const ListComments = ({name, comment, removeComment}) => {
       return (
-        <div key={index}>
-            <p>{element.name}</p>
-            <p>{element.comment}</p>
+        <div>
+            <p>{name}</p>
+            <p>{comment}</p>
+            <button onClick={removeComment}>Delete</button> <button>Report abuse</button>
         </div>
       )
-    });
-    return (<div>{list}</div>)
 }
 
 const App = ({commentary, selectedComment}) => {
+
+   const ListComment = commentary.map((element, index) => {
+          return (
+            <ListComments
+            key = {index}
+            name={element.name}
+            comment={element.comment}
+            removeComment={() => removeComment(index)}
+            />
+          )
+        });
+        
+
   const onSubmit = (e) => {
 		e.preventDefault();
 		console.log ( 'this..', this);//con truco, es el connect el this.
     addComment(this.userName.value, this.comment.value );
-    this.userName.value = "";
+     this.userName.value = "";
      this.comment.value = "";
   }
   console.log(commentary)
@@ -37,7 +48,7 @@ const App = ({commentary, selectedComment}) => {
         </div>
         <button type="submit" className="btn btn-default">Submit</button>
       </form>
-          <ListComments commentary={commentary} />
+          <div>{ListComment}</div>
       </div>
     );
 }

@@ -11,3 +11,10 @@ export const addComment = (name, comment) => {
 		commentary: addCommentary
 	})
 };
+export const removeComment = (index) => {
+	const addCommentary =  store.getState().commentary.filter( (item, idx) => idx != index );
+
+	store.setState({
+		commentary: addCommentary
+	})
+}
