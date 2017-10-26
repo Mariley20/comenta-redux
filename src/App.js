@@ -48,7 +48,10 @@ const App = ({commentary, selectedComment}) => {
         </div>
         <button type="submit" className="btn btn-default">Submit</button>
       </form>
-          <div>{ListComment}</div>
+          <div>
+            <h3>Comments</h3>
+            <label>{commentary.length} comments</label>
+          {ListComment}</div>
       </div>
     );
 }
